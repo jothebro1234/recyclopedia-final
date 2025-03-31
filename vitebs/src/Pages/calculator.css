@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+  
+  .wide1, .wide2 {
+    width: 45%;
+    margin: 5%; /* Increased margin for better spacing */
+  }
+  
+  .question {
+    padding-bottom: 10%; /* Increased padding for more spacing */
+  }
+  
+  .center {
+    text-align: center;
+  }
+  
+  input[type=number] {
+    background-color: #1a3918;
+    color: white;
+    border-radius: 30px;
+    /* opacity: 20%; */
+    border: solid;
+    height: 4vh; /* Increased height for larger input field */
+    padding: 2vh; /* Increased padding for larger input area */
+    font-size: 2rem; /* Increased font size for better readability */
+    transition: 200ms;
+    border-width: 0;
+}
+  input:hover{
+    
+    transition: 200ms;
+    scale: 1.05;
+  }
+  
+  h2 {
+    font-size: 3rem; /* Increased size of headings */
+  }
+  
+  label {
+    font-size: 1.5rem; /* Increased label font size */
+  }
+  
+  button.calculate {
+    background-color: #069900; /* Green background to match the theme */
+    color: white; /* White text for contrast */
+    border: none; /* Remove the default border */
+    border-radius: 30px; /* Rounded corners for a smooth, modern look */
+    font-size: 1.5rem; /* Bigger text for readability */
+    padding: 1.5vh 4vh; /* Adequate padding to make the button larger */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+     /* Space above the button */
+    width: auto; /* Ensure the width adjusts based on content */
+  }
+  
+  button.calculate:hover {
+    background-color: #045a00; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly larger on hover for effect */
+  }
+  
+  button.calculate:disabled {
+    background-color: #7f9b7a; /* Gray background when disabled */
+    cursor: not-allowed; /* Disable interaction when the button is disabled */
+  }
