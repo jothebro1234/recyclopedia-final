@@ -61,7 +61,7 @@ function Video() {
           marginTop: '20px',
           padding: '0 20px',
         }}>
-          made by joseph made by josephmade by josephmade by josephmade by josephmade by josephmade by josephmade by josephmade by josephmade by josephmade by josephmade by josephmade by josephmade by josephmade by josephmade by joseph
+          Recycling isn't just a choice—it’s a responsibility! 🌍♻️ Every bottle, can, and piece of paper we recycle helps reduce waste, conserve natural resources, and protect our planet for future generations. Small actions, like sorting your recyclables and reusing materials, make a huge impact in reducing pollution and saving energy. Let’s work together to keep our environment clean and sustainable. Start today—because every effort counts! 💚✨
         </p>
 
       </div>

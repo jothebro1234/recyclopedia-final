@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-//import Navbar from '../components/Navbar';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { getBase64 } from '../Pages/image_helper';
 import './Scanner.css';
@@ -36,24 +35,29 @@ const Scanner = () => {
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
+    if (images.length >= 1) return; // Prevents adding more than 1 image
+
     const newImages = [...images];
     const newInlineData = [...imageInlineData];
 
     files.forEach((file) => {
-      if (newImages.length < 5) {
+      if (newImages.length < 1) {
         getBase64(file)
           .then((result) => {
-            newImages.push(result);
-            setImages(newImages);
+            setImages(prevImages => [...prevImages, result]);
           })
           .catch(e => console.log(e));
 
         fileToGenerativePart(file).then((data) => {
-          newInlineData.push(data);
-          setImageInlineData(newInlineData);
+          setImageInlineData(prevData => [...prevData, data]);
         });
       }
     });
+  };
+
+  const handleImageClick = (index) => {
+    setImages(images.filter((_, i) => i !== index));
+    setImageInlineData(imageInlineData.filter((_, i) => i !== index));
   };
 
   async function fileToGenerativePart(file) {
@@ -70,8 +74,6 @@ const Scanner = () => {
 
   return (
     <div className="scanner-container">
-      
-
       <div className="upload-section">
         <input type="file" multiple onChange={handleImageChange} className="file-input" id="file-upload" />
         <label htmlFor="file-upload" className="upload-button">Upload Image</label>
@@ -80,7 +82,7 @@ const Scanner = () => {
 
       <div className="image-gallery">
         {images.map((img, index) => (
-          <div key={index} className="image-wrapper">
+          <div key={index} className="image-wrapper" onClick={() => handleImageClick(index)}>
             <img src={img} alt={`Uploaded ${index + 1}`} className="uploaded-image" />
           </div>
         ))}

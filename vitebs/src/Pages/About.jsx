@@ -69,7 +69,9 @@ function About() {
           }} />
           <div className="person-info" style={{ textAlign: 'center' }}>
             <h2 style={{ margin: '0' }}>Person 1</h2>
-            <p style={{ fontSize: '16px', lineHeight: '1.5' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget arcu quis orci tempor fringilla.</p>
+            <p style={{ fontSize: '16px', lineHeight: '1.5' }}>Jeongseop (Joseph) Yoon, a freshman at Whitney High School (CA45), is passionate about robotics, AI, and technology. He hones his skills through competitions like the First Tech Challenge and the Congressional App Challenge while developing leadership in the Civil Air Patrol AirForce Program. A national-level writer, he enjoys exploring contemporary tech and giving back by teaching and managing programs for local schools.
+  <p></p>
+Contact: Josephyoon25@gmail.com | 562-547-1759 </p>
           </div>
         </div>
 
@@ -100,7 +102,7 @@ function About() {
             <p style={{ fontSize: '16px', lineHeight: '1.5' }}>Niranjan Janardhanan is a freshman at Whitney High School in Cerritos, California. He is passionate about computer science and has experience in software development, but is currently interested in cybersecurity and AI.
 
 Niranjan loves participating in competitions like First Tech Challenge, CyberPatriot, and Congressional App Challenge and giving back to the community by volunteering at robotics summer camps and tutoring students in math.
-
+          
 Contact:
 njanardhanan28@gmail.com
 424-449-6936</p>
