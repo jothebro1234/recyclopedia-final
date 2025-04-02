@@ -4,27 +4,64 @@ import { getBase64 } from '../Pages/image_helper';
 import './Scanner.css';
 
 const Scanner = () => {
-  const genAI = new GoogleGenerativeAI('AIzaSyABWevQovzTG8NZCP7KMSe8oJPeMxxo8NA');
-
   const [images, setImages] = useState([]);
   const [imageInlineData, setImageInlineData] = useState([]);
   const [aiResponse, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
 
+  function returnString(data) {
+    const jsonData = JSON.parse(data);
+    console.log(jsonData);
+    console.log(jsonData.predictions[0]);
+    if (jsonData.predictions[0].displayNames.length == 0 || jsonData.predictions[0].displayNames[0] == "trash") {
+      return "trash";
+    } else {
+      return "recyclable";
+    }
+  }
+
   async function aiImageRun() {
     setLoading(true);
     setResponse('');
-
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    
     const responses = await Promise.all(imageInlineData.map(async (data) => {
-      const result = await model.generateContent([
-        "Return if the given object is recyclable or not in an average recycling center. Add a line break in between items. Make the response as short as possible and in this format:",
-        "This material is [material]. This [is/is not] recyclable. [Any additional information]",
-        data,
-      ]);
-      return result.response.text();
+      // Extract the base64 data from the imageInlineData object
+      const imgFile = data.inlineData.data;
+      
+      // Use your existing functions with the base64 data
+      const myHeaders = new Headers();
+      myHeaders.append("Authorization", "Bearer ya29.a0AeXRPp5dPTXH18sCRq9uosvWOSBst-uADsS0gTOjrOBBlyqeWSSu2wRjULSSAg-vimQWNg43xTf8ch0I-OVDLAiYsoxV7M5r_oudgEvs30-F1whel22k0dnUP1R53d-jFiZ2FHN-V1MvxYY7n3gpqXzI1fiqaOg_Sgosu8-auAaCgYKAb0SARMSFQHGX2Mi2zSfTpPMkTPxSwu1XeIOmQ0177");
+      myHeaders.append("Content-Type", "application/json");
+  
+      const raw = JSON.stringify({
+        "instances": [
+          {
+            "content": imgFile
+          }
+        ],
+        "parameters": {
+          "confidenceThreshold": 0.5,
+          "maxPredictions": 5
+        }
+      });
+  
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+      };
+  
+      try {
+        const response = await fetch("https://us-central1-aiplatform.googleapis.com/v1/projects/299117746416/locations/us-central1/endpoints/5074823405790822400:predict", requestOptions);
+        const result = await response.text();
+        return returnString(result);
+      } catch (error) {
+        console.error("Error:", error);
+        return "Error processing image";
+      }
     }));
-
+  
     setResponse(responses.join('\n\n'));
     setLoading(false);
   }
