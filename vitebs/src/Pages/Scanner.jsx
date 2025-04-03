@@ -120,7 +120,7 @@ const Scanner = () => {
       <div className="image-gallery">
         {images.map((img, index) => (
           <div key={index} className="image-wrapper" onClick={() => handleImageClick(index)}>
-            <img src={img} alt={`Uploaded ${index + 1}`} className="uploaded-image" />
+[f]            <img src={img} alt={`Uploaded ${index + 1}`} className="uploaded-image" />
           </div>
         ))}
       </div>
