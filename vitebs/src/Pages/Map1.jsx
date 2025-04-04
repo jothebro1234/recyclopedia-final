@@ -86,8 +86,8 @@ const Map1 = () => {
             // const { target } = domEvent;
             console.log(place.id);
             const infoString = `
-              <h3 style="color:black;">${markerView.title}</h3>
-              <p><a href="https://www.google.com/maps/search/?api=1&query=null&query_place_id=${place.id}">Search on Google Maps</a></p>
+              <h3 style="color:black; font-size:1.5rem; padding:5%; padding-top:0;">${markerView.title}</h3>
+              <p style="color:blue; font-size:0.9rem; padding-bottom:2%;"><a href="https://www.google.com/maps/search/?api=1&query=null&query_place_id=${place.id}">View in Google Maps</a></p>
             `;
             const infoWindow = new google.maps.InfoWindow({
               content: infoString,

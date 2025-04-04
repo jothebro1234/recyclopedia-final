@@ -3,6 +3,10 @@
     justify-content: space-between;
     text-align: center;
   }
+
+h2{
+  padding-bottom: 3vh;
+}
   
   .wide1, .wide2 {
     width: 45%;
@@ -10,7 +14,7 @@
   }
   
   .question {
-    padding-bottom: 10%; /* Increased padding for more spacing */
+    padding-bottom: 1vh; /* Increased padding for more spacing */
   }
   
   .center {
@@ -44,7 +48,7 @@
   }
   
   button.calculate {
-    background-color: #069900; /* Green background to match the theme */
+    background-color: #308c54;
     color: white; /* White text for contrast */
     border: none; /* Remove the default border */
     border-radius: 30px; /* Rounded corners for a smooth, modern look */
@@ -57,7 +61,7 @@
   }
   
   button.calculate:hover {
-    background-color: #045a00; /* Darker green on hover */
+    background-color: #205836;; /* Darker green on hover */
     transform: scale(1.05); /* Slightly larger on hover for effect */
   }
   

@@ -14,9 +14,9 @@ const Scanner = () => {
     console.log(jsonData);
     console.log(jsonData.predictions[0]);
     if (jsonData.predictions[0].displayNames.length == 0 || jsonData.predictions[0].displayNames[0] == "trash") {
-      return "trash";
+      return "This item is trash. This is not recyclable.";
     } else {
-      return "recyclable";
+      return "This item is " + jsonData.predictions[0].displayNames[0] + ". This is recyclable.";
     }
   }
 
@@ -30,7 +30,7 @@ const Scanner = () => {
       
       // Use your existing functions with the base64 data
       const myHeaders = new Headers();
-      myHeaders.append("Authorization", "Bearer ya29.a0AeXRPp5dPTXH18sCRq9uosvWOSBst-uADsS0gTOjrOBBlyqeWSSu2wRjULSSAg-vimQWNg43xTf8ch0I-OVDLAiYsoxV7M5r_oudgEvs30-F1whel22k0dnUP1R53d-jFiZ2FHN-V1MvxYY7n3gpqXzI1fiqaOg_Sgosu8-auAaCgYKAb0SARMSFQHGX2Mi2zSfTpPMkTPxSwu1XeIOmQ0177");
+      myHeaders.append("Authorization", "Bearer ya29.a0AeXRPp74vz1DssKs6DysDWDJcA3-BzSPkKrWCQheXinuNKph2nVpfVHRoVbCtUGIbvvhG2V7Xqf1P2F6_Wj6Fb2szuyAujRWcyj3lf7e8LX9ASpVPiiDYSV7gQy-9yfCcI7iTwsPYVtvVqijIAPJiWxOVD5TQyDmqtZ29pAmRebg4MwaCgYKAeESARMSFQHGX2MinEaZRQHvJZ9FPCBcuiTD6Q0182");
       myHeaders.append("Content-Type", "application/json");
   
       const raw = JSON.stringify({
@@ -40,8 +40,8 @@ const Scanner = () => {
           }
         ],
         "parameters": {
-          "confidenceThreshold": 0.5,
-          "maxPredictions": 5
+          "confidenceThreshold": 0.7,
+          "maxPredictions": 1
         }
       });
   
@@ -120,7 +120,7 @@ const Scanner = () => {
       <div className="image-gallery">
         {images.map((img, index) => (
           <div key={index} className="image-wrapper" onClick={() => handleImageClick(index)}>
-[f]            <img src={img} alt={`Uploaded ${index + 1}`} className="uploaded-image" />
+            <img src={img} alt={`Uploaded ${index + 1}`} className="uploaded-image" />
           </div>
         ))}
       </div>
