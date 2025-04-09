@@ -42,7 +42,7 @@ function Start() {
           <div style={{ textAlign: 'center', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <h2 style={{ marginBottom: '30px', color: 'white', fontSize: '2.5rem' }}>Impact</h2>
             {Object.entries(demographics).length > 0 ? (
-              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, textAlign: 'left', width: '80%' }}>
+              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, textAlign: 'center', width: '80%' }}>
                 {Object.entries(demographics).map(([key, value]) => (
                   <li key={key} style={{ margin: '15px 0', fontSize: '1.6rem' }}>
                     <strong style={{ color: themeGreen }}>{key}:</strong> {value}
@@ -125,7 +125,7 @@ function Start() {
           {getStepTitle()}
         </div>
         <div style={{ position: 'absolute', right: '5%', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(0, 0, 0, 0.7)', width: '65%', height: '90%', padding: '20px', borderRadius: '15px', color: 'white', overflow: 'auto' }}>
-          {renderStepContent()}
+          {renderStepContent()};
         </div>
         <div style={{ position: 'absolute', left: '5%', top: 'calc(50% + 80px)', display: 'flex', gap: '15px' }}>
           <button 
